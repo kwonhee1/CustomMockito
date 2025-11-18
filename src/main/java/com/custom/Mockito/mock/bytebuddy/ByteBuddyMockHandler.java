@@ -2,12 +2,11 @@ package com.custom.Mockito.mock.bytebuddy;
 
 import com.custom.Mockito.handler.TotalHandler;
 import com.custom.Mockito.maker.TotalMaker;
-import com.custom.Mockito.mock.MockHandler;
 import java.lang.reflect.Method;
 import net.bytebuddy.asm.Advice;
 import net.bytebuddy.implementation.bytecode.assign.Assigner;
 
-public class ByteBuddyMockHandler implements MockHandler {
+public class ByteBuddyMockHandler {
 
     @Advice.OnMethodEnter(skipOn = Advice.OnDefaultValue.class)
     public static boolean enter(
@@ -28,16 +27,6 @@ public class ByteBuddyMockHandler implements MockHandler {
     ) {
         if(!isOrigin)
             returnValue = TotalHandler.handle(method, instance, args);
-    }
-
-    @Override
-    public Object handle(Method method, Object[] args, Object instance) {
-        return MockHandler.super.handle(method, args, instance);
-    }
-
-    @Override
-    public Object originMethod(Object... args) {
-        return null;
     }
 
 }
