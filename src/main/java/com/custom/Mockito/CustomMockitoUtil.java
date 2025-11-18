@@ -12,22 +12,17 @@ import java.util.Map;
 import java.util.function.Supplier;
 import net.bytebuddy.agent.ByteBuddyAgent;
 
-public final class CustomMockitoUtil {
+public class CustomMockitoUtil {
 
-    private static final CustomMockitoUtil instance = new CustomMockitoUtil();
-    private static final MockMaker MOCK_MAKER = new ByteBuddyMockMaker();
+    private static MockMaker MOCK_MAKER = new ByteBuddyMockMaker();
 
     private static final Map<Class, ClassHandler> mockMethodHandlerMap = new HashMap<>();
 
     private static final TotalHandler totalHandler = new TotalHandler(mockMethodHandlerMap);
 
-    private CustomMockitoUtil() {
+    static {
         // must run once!! do not run more once!!
         ByteBuddyAgent.install();
-    }
-
-    public static CustomMockitoUtil of() {
-        return instance;
     }
 
     public static void mock(Class mockClass) {
@@ -75,6 +70,10 @@ public final class CustomMockitoUtil {
         public void reset() {
             CustomMockitoUtil.reset(method);
         }
+    }
+
+    public static void setMockMaker(MockMaker inputMockMaker) {
+        CustomMockitoUtil.MOCK_MAKER = inputMockMaker;
     }
 
 }
