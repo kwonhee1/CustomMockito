@@ -1,5 +1,6 @@
 *.txt
 *.text
+src/main/resources/
 
 HELP.md
 .gradle
