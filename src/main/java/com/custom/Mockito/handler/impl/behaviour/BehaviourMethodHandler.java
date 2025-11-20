@@ -72,7 +72,7 @@ public class BehaviourMethodHandler implements MethodHandler {
     ) {
         Method customMethod = null;
         try {
-            customMethod = nextHandler.getClass().getMethod(originMethod.getName());
+            customMethod = nextHandler.getClass().getMethod(originMethod.getName(), originMethod.getParameterTypes());
             customMethod.setAccessible(true);
         } catch (NoSuchMethodException e) {
             throw new NoCustomMethodException("No custom method initialized");
