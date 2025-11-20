@@ -1,7 +1,7 @@
 package com.custom.Mockito.mock.bytebuddy;
 
 import com.custom.Mockito.handler.TotalHandler;
-import com.custom.Mockito.maker.TotalMaker;
+import com.custom.Mockito.maker.OriginMethodRegistry;
 import java.lang.reflect.Method;
 import net.bytebuddy.asm.Advice;
 import net.bytebuddy.implementation.bytecode.assign.Assigner;
@@ -12,7 +12,7 @@ public class ByteBuddyMockHandler {
     public static boolean enter(
             @Advice.Origin Method method
     ) {
-        if(TotalMaker.isOriginMethod(method))
+        if(OriginMethodRegistry.isOriginMethod(method))
             return true;
         return false;
     }

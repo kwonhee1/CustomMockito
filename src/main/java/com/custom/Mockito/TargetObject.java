@@ -24,4 +24,12 @@ public class TargetObject {
         return 3;
     }
 
+    public Integer throwException() {
+        throw new RuntimeException("TargetObject() :: throwException");
+    }
+
+    public Integer returnSum(int a, int b) {
+        return a + b;
+    }
+
 }

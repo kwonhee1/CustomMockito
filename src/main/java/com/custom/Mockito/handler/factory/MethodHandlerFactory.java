@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface MethodHandlerFactory {
 
-    static List<MethodHandlerFactory> list = List.of(new OriginHandlerFactory(), new ValueHandlerFactory(), new BehaviourHandlerFactory());
+    static List<MethodHandlerFactory> list = new ArrayList(List.of(new OriginHandlerFactory(), new ValueHandlerFactory(), new BehaviourHandlerFactory()));
 
     MethodHandler generate(Method method, Object handler, MethodHandler oldHandler);
     boolean validateHandler(Object handler);

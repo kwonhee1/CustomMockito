@@ -1,5 +1,6 @@
 package com.custom.Mockito;
 
+import com.custom.Mockito.handler.factory.MethodHandlerFactory;
 import com.custom.Mockito.mock.MockMaker;
 import com.custom.Mockito.handler.ClassHandler;
 import com.custom.Mockito.handler.TotalHandler;
@@ -70,6 +71,10 @@ public class CustomMockitoUtil {
         public void reset() {
             CustomMockitoUtil.reset(method);
         }
+    }
+
+    public static void addCustomMethodHandler(MethodHandlerFactory methodHandlerFactory) {
+        MethodHandlerFactory.addFactory(methodHandlerFactory);
     }
 
     public static void setMockMaker(MockMaker inputMockMaker) {
