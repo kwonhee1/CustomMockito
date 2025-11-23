@@ -1,6 +1,5 @@
 package com.custom.Mockito.mock.bytebuddy;
 
-import com.custom.Mockito.TargetObject;
 import com.custom.Mockito.mock.MockMaker;
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.asm.Advice;
@@ -38,7 +37,7 @@ public class ByteBuddyMockMaker implements MockMaker {
 //                )
                 )
                 .make()
-                .load(TargetObject.class.getClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
+                .load(mockClass.getClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
         return mockClass;
     }
 
