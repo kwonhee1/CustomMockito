@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface IgnoreMethodSignature {
-
+    // todo : Behaviour 등록 할 때 Method 시그니처 검사 skip
 }
