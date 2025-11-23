@@ -1,4 +1,4 @@
-package com.custom.Mockito;
+package com.custom.Mockito.main;
 
 import com.custom.Mockito.handler.factory.MethodHandlerFactory;
 import com.custom.Mockito.mock.MockMaker;
